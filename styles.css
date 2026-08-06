@@ -421,10 +421,14 @@ a {
 }
 
 .greeting__parents .parent-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+.greeting__parents .parent-row span {
+    white-space: nowrap;
 }
 
 .greeting__parents .parent-dot {
@@ -905,9 +909,11 @@ a {
   }
 
   .hero__names {
-    font-size: 1.75rem;
-    letter-spacing: 8px;
-  }
+  font-size: clamp(1.15rem, 5vw, 1.5rem);
+  letter-spacing: 2px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
 
   .hero__photo {
     aspect-ratio: 4 / 5;
@@ -978,4 +984,113 @@ a {
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* ===========================
+   모바일 줄바꿈 방지
+   =========================== */
+
+/* 이름 */
+.hero__names{
+    font-size:clamp(1.15rem,5vw,1.5rem);
+    letter-spacing:2px;
+    line-height:1.4;
+    white-space:nowrap;
+}
+
+/* 커튼 이름 */
+.curtain__names{
+    font-size:clamp(1rem,4.5vw,1.25rem);
+    letter-spacing:2px;
+    white-space:nowrap;
+}
+
+/* 부모님 소개 */
+.greeting__parents{
+    font-size:clamp(.75rem,3.6vw,.875rem);
+}
+
+.greeting__parents .parent-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:.3rem;
+    line-height:1.8;
+}
+
+.greeting__parents span{
+    white-space:nowrap;
+}
+
+/* 예식 날짜 */
+.hero__date{
+    font-size:clamp(.78rem,3.5vw,.875rem);
+    word-break:keep-all;
+}
+
+/* 예식장 */
+.hero__venue{
+    font-size:clamp(.78rem,3.5vw,.875rem);
+    word-break:keep-all;
+}
+
+/* 위치 */
+.location__venue,
+.location__hall,
+.location__address,
+.location__tel{
+    word-break:keep-all;
+    overflow-wrap:break-word;
+}
+
+/* 계좌 */
+.account-item{
+    gap:.5rem;
+}
+
+.account-item__info{
+    flex:1;
+    min-width:0;
+}
+
+.account-item__detail{
+    word-break:keep-all;
+    overflow-wrap:anywhere;
+}
+
+/* 버튼 */
+.btn{
+    white-space:nowrap;
+}
+
+/* 긴 문장은 자연스럽게 */
+.section__title,
+.greeting__text,
+.story__text,
+.account__desc{
+    word-break:keep-all;
+}
+
+/* 아주 작은 폰 */
+@media (max-width:360px){
+
+    .hero__names{
+        font-size:1.05rem;
+        letter-spacing:1px;
+    }
+
+    .curtain__names{
+        font-size:.95rem;
+        letter-spacing:1px;
+    }
+
+    .greeting__parents{
+        font-size:.72rem;
+    }
+
+    .section__inner{
+        padding:0 14px;
+    }
+
 }
